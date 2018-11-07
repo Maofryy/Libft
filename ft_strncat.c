@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/07 17:30:09 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/07/08 19:31:25 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/07 16:48:23 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	return (0);
+	int		i;
+	int		j;
+	size_t	k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	while (s1[i] != '\0')
+		i++;
+	while ((char)s2[j] != '\0' && k < n)
+	{
+		s1[i + j] = (char)s2[j];
+		j++;
+		k++;
+	}
+	s1[i + j] = '\0';
+	return ((char *)s1);
 }

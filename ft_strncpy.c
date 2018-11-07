@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/07 17:30:09 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/07/07 04:56:43 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/07 16:58:49 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+char	*ft_strncpy(char *dst, const char *src, size_t n)
 {
-	return (0);
+	int		i;
+	size_t	k;
+	char	*str;
+
+	i = 0;
+	k = 0;
+	str = (char *)src;
+	while (str[i] && k < n)
+	{
+		dst[i] = str[i];
+		i++;
+		k++;
+	}
+	while (k < n)
+	{
+		dst[i++] = '\0';
+		k++;
+	}
+	return (dst);
 }
