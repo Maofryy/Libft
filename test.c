@@ -6,13 +6,13 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/07 14:46:11 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/07 15:31:39 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "libft.h"
+#include "libft.h"
 
-int main()
+int	main(void)
 {
 	return (0);
 }
