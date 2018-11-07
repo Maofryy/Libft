@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/07 14:19:22 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/07 14:06:46 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/07 15:28:42 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+# include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memmove(void *dst, const void *src, size_t len);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t i;
+	char *cpy;
+	const char *str;
 
-#endif
+	cpy = (char *)dst;
+	str = (char *)src;
+	if (dst < src)
+	{
+		i = 0;
+		while (i < len)
+		{	
+			cpy[i] = str[i];
+			i++;
+		}
+	}
+	else
+	{
+		i = len;
+		while (i > 0)
+		{
+			i--;
+			cpy[i] = str[i];
+		}
+	}
+	return (dst);
+}
