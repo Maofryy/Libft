@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2018/11/07 11:50:36 by mbenhass         ###   ########.fr        #
+#    Updated: 2018/11/07 12:24:09 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ HEAD = ./
 
 OBJ = $(SRCS:.c=.o)
 
+LIB = libft.a
+
 all : $(NAME)
 
 $(NAME) : $(OBJ)
@@ -27,6 +29,10 @@ $(NAME) : $(OBJ)
 
 %.o: %.c
 	gcc $(FLAGS) -I $(HEAD) -o $@ -c $<
+
+lib : 
+	ar rc $(LIB) $(OBJ)
+	ranlib $(LIB)
 
 clean :
 	/bin/rm -rf *.o */*.o
