@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/07 12:35:53 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/07 12:29:27 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/07 13:09:08 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <string.h>
+# include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	size_t i;
+	char *cpy;
+	char *str;
 
-#endif
+	cpy = dst;
+	str = (char *)src;
+	i = 0;
+	while (i < n)
+	{
+		if ((unsigned char)str[i] == (unsigned char)c)
+		{
+			cpy[i] = c;
+			return (&cpy[i + 1]);
+		}
+		cpy[i] = str[i];
+		i++;
+	}
+	return (NULL);
+}
