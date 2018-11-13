@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 16:07:52 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/13 17:36:41 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/13 17:42:29 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	return (0);
+	size_t	i;
+	char	*str;
+	char	*ret;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	str = (char *)s;
+	while (str[i])
+		i++;
+	if ((ret = ft_strnew(i)) == NULL)
+		return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		ret[i] = (*f)(str[i]);
+		i++;
+	}
+	return (ret);
 }

@@ -1,18 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 16:07:52 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/13 17:42:33 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/13 17:44:16 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	return (0);
+	size_t			i;
+	char			*str;
+	char			*ret;
+	unsigned int	j;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	str = (char *)s;
+	while (str[i])
+		i++;
+	if ((ret = ft_strnew(i)) == NULL)
+		return (NULL);
+	j = 0;
+	while (str[j])
+	{
+		ret[j] = (*f)(j, str[j]);
+		j++;
+	}
+	return (ret);
 }

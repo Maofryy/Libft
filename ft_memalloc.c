@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 16:07:52 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/13 16:49:08 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/13 17:02:16 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
+void	*ft_memalloc(size_t size)
 {
-	return (0);
+	void *ret;
+
+	if ((ret = malloc(size)) == NULL)
+		return (NULL);
+	ft_bzero(ret, size);
+	return (ret);
 }

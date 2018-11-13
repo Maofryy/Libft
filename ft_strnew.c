@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 16:07:52 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/13 17:08:15 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/13 17:36:16 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		main(void)
+char	*ft_strnew(size_t size)
 {
-	return (0);
+	char *ret;
+
+	if ((ret = (char *)ft_memalloc(size + 1)) == NULL)
+		return (NULL);
+	return (ret);
 }
