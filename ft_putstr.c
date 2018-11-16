@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/16 16:26:25 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/16 16:13:44 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/16 16:53:52 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	ft_putstr(const char *s)
 {
-	printf("%S\n", L"texte");
-	printf("%s\n", "texte");
-	return (0);
+	ft_putstr_fd(s, 1);
 }

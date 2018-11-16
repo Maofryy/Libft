@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/07 12:27:20 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/16 16:26:25 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/16 17:00:12 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/16 17:01:23 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	main(void)
+void	ft_putnbr(int n)
 {
-	printf("%S\n", L"texte");
-	printf("%s\n", "texte");
-	return (0);
+	ft_putnbr_fd(n, 1);
 }

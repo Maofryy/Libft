@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:08:31 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 18:26:34 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/16 14:42:46 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ char	*ft_strtrim(char const *s)
 	j = 0;
 	k = 0;
 	str = (char *)s;
-	k = ft_strlen(str);
+	k = ft_strlen(str) - 1;
 	while (is_space(str[j]) && str[j])
 		j++;
-	k--;
-	while (is_space(str[k]) && str[k])
-		k--;
-	if (j == k)
+	if (j == k + 1)
 		return ("");
+	while (is_space(str[k]))
+		k--;
 	if ((ret = ft_memalloc(k - j + 2)) == NULL)
 		return (NULL);
 	while (str[j] && j <= k)
