@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/08 20:11:24 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/20 15:01:55 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/20 09:22:09 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/20 09:24:32 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t i;
-	size_t s1;
-	size_t s2;
+	t_list *new;
 
-	i = 0;
-	s1 = ft_strlen(dst);
-	s2 = ft_strlen(src);
-	if (size == 0)
-		return (s2);
-	if (size - 1 <= s1)
-		return (s2 + size);
-	while (s1 + i < size - 1)
+	if ((new = (t_list *)ft_memalloc(sizeof(t_list))) == NULL)
+		return (NULL);
+	if (content == NULL)
 	{
-		dst[s1 + i] = (char)src[i];
-		i++;
+		new->content = NULL;
+		new->content_size = 0;
 	}
-	dst[i + s1] = '\0';
-	return (s1 + s2);
+	else
+	{
+		if ((new->content = ft_memalloc(content_size)) == NULL)
+			return (NULL);
+		ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

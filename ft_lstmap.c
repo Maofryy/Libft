@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/08 20:11:24 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/20 15:01:55 by mbenhass         ###   ########.fr       */
+/*   Created: 2018/11/20 09:21:16 by mbenhass          #+#    #+#             */
+/*   Updated: 2018/11/20 15:16:56 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t i;
-	size_t s1;
-	size_t s2;
+	t_list	*ret;
+	t_list	*list;
 
-	i = 0;
-	s1 = ft_strlen(dst);
-	s2 = ft_strlen(src);
-	if (size == 0)
-		return (s2);
-	if (size - 1 <= s1)
-		return (s2 + size);
-	while (s1 + i < size - 1)
+	if (lst == NULL)
+		return (NULL);
+	ret = (*f)(lst);
+	list = ret;
+	while (lst->next)
 	{
-		dst[s1 + i] = (char)src[i];
-		i++;
+		lst = lst->next;
+		if ((list->next = (*f)(lst)) == NULL)
+		{
+			free(list->next);
+			return (NULL);
+		}
+		list = list->next;
 	}
-	dst[i + s1] = '\0';
-	return (s1 + s2);
+	return (ret);
 }

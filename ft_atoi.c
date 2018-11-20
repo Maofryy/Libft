@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 10:01:08 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 16:21:10 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/20 14:46:54 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,18 @@ int		ft_atoi(const char *str)
 	res = 0;
 	sign = 1;
 	s = (char *)str;
-	if (s[0] == '\0')
+	if (*s == '\0')
 		return (0);
 	while ((s[i] == '\n') || (s[i] == '\t') || (s[i] == '\v')
 	|| (s[i] == ' ') || (s[i] == '\f') || (s[i] == '\r'))
 		i++;
-	if (s[i] == '-')
+	if (s[i] == '-' || s[i] == '+')
 	{
-		sign = -1;
+		if (s[i] == '-')
+		{
+			sign = -1;
+		}
 		i++;
 	}
-	if (s[i] == '+')
-		i++;
 	return (ft_calcint(s, res, i, sign));
 }

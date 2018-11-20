@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2018/11/16 15:56:19 by mbenhass         ###   ########.fr        #
+#    Updated: 2018/11/20 15:17:27 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ clean :
 
 fclean : clean
 	/bin/rm -rf $(NAME)
+	/bin/rm -rf $(LIB)
 
 re : fclean all
 
