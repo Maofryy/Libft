@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 14:26:07 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/12 11:10:30 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/20 15:27:32 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char		*ft_strnstr(const char *haysack, const char *needle, size_t len)
 	while (str[i] != '\0')
 	{
 		j = 0;
-		while (to_find[j] == str[j + i] && (i + j <= len))
+		while (to_find[j] == str[j + i] && (i + j < len))
 		{
 			if (to_find[j + 1] == '\0')
 				return (&str[i]);
