@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2018/11/20 15:17:27 by mbenhass         ###   ########.fr        #
+#    Updated: 2018/11/21 12:15:44 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,25 +14,22 @@ SRCS = $(wildcard *.c)
 
 FLAGS = -Wall -Wextra -Werror
 
-NAME = test
+NAME = libft.a
 
 HEAD = ./
 
 OBJ = $(SRCS:.c=.o)
 
-LIB = libft.a
+all : $(NAME)
 
-all : $(LIB)
+$(NAME) : ./libft.h
+	gcc $(FLAGS) -I $(HEAD) -c $(SRCS)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
-$(NAME) : $(OBJ)
-	gcc $(FLAGS) -I $(HEAD) -o $@ $^
+#%.o: %.c
+#	gcc $(FLAGS) -I $(HEAD) -o $@ -c $<
 
-%.o: %.c
-	gcc $(FLAGS) -I $(HEAD) -o $@ -c $<
-
-$(LIB) : $(OBJ)
-	ar rc $@ $^
-	ranlib $@
 
 clean :
 	/bin/rm -rf *.o */*.o

@@ -6,13 +6,13 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 10:01:08 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/20 14:46:54 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:17:31 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_calcint(char *s, long res, long i, int sign)
+static int		ft_calcint(char *s, long res, long i, int sign)
 {
 	while (s[i] <= '9' && s[i] >= '0')
 	{
@@ -29,7 +29,7 @@ int		ft_calcint(char *s, long res, long i, int sign)
 	return (sign * res);
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	long	i;
 	long	res;

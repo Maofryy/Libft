@@ -6,14 +6,14 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:51:19 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/16 16:52:21 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:18:21 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-size_t	get_len(int n)
+static size_t	get_len(int n)
 {
 	int		i;
 	size_t	len;
@@ -33,7 +33,7 @@ size_t	get_len(int n)
 	return (len);
 }
 
-char	*ft_catnbr(char *str, int n)
+static char		*ft_catnbr(char *str, int n)
 {
 	char c[2];
 
@@ -49,7 +49,7 @@ char	*ft_catnbr(char *str, int n)
 	return (str);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*str;
 

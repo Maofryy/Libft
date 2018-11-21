@@ -6,20 +6,20 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/26 18:47:55 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/16 15:00:15 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:18:48 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_char(char c, char charset)
+static int		is_char(char c, char charset)
 {
 	if (c == charset)
 		return (1);
 	return (0);
 }
 
-size_t	count_words(char *str, char c)
+static size_t	count_words(char *str, char c)
 {
 	size_t	count;
 	int		i;
@@ -40,7 +40,7 @@ size_t	count_words(char *str, char c)
 	return (count);
 }
 
-size_t	word_len(char *str, int i, char c)
+static size_t	word_len(char *str, int i, char c)
 {
 	size_t	count;
 
@@ -55,7 +55,7 @@ size_t	word_len(char *str, int i, char c)
 	return (count);
 }
 
-char	**ft_strsplit(const char *s, char c)
+char			**ft_strsplit(const char *s, char c)
 {
 	int		i;
 	int		j;

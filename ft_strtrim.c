@@ -6,13 +6,13 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:08:31 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/16 14:42:46 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/11/21 12:19:04 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_space(char c)
+static int		is_space(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n')
 		return (1);
@@ -20,7 +20,7 @@ int		is_space(char c)
 		return (0);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	char	*ret;
 	char	*str;
