@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 18:08:31 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/21 12:19:04 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/12/04 09:31:31 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,16 @@ static int		is_space(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n')
 		return (1);
-	else
-		return (0);
+	return (0);
+}
+
+static	char	*ft_retnull(void)
+{
+	char	*ret;
+
+	ret = (char*)malloc(1);
+	ret[0] = '\0';
+	return (ret);
 }
 
 char			*ft_strtrim(char const *s)
@@ -38,10 +46,10 @@ char			*ft_strtrim(char const *s)
 	while (is_space(str[j]) && str[j])
 		j++;
 	if (j == k + 1)
-		return ("");
+		return (ft_retnull());
 	while (is_space(str[k]))
 		k--;
-	if ((ret = ft_memalloc(k - j + 2)) == NULL)
+	if ((ret = (char*)malloc(sizeof(char) * (k - j + 2))) == NULL)
 		return (NULL);
 	while (str[j] && j <= k)
 		ret[i++] = str[j++];

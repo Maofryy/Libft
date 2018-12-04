@@ -6,28 +6,11 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/06 10:01:08 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/21 12:17:31 by mbenhass         ###   ########.fr       */
+/*   Updated: 2018/12/04 09:18:23 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int		ft_calcint(char *s, long res, long i, int sign)
-{
-	while (s[i] <= '9' && s[i] >= '0')
-	{
-		if (res * 10 + s[i] - '0' > 2147483648)
-		{
-			if (sign == 1)
-				return (-1);
-			else if (sign == -1)
-				return (0);
-		}
-		res = res * 10 + s[i] - '0';
-		i++;
-	}
-	return (sign * res);
-}
 
 int				ft_atoi(const char *str)
 {
@@ -45,13 +28,12 @@ int				ft_atoi(const char *str)
 	while ((s[i] == '\n') || (s[i] == '\t') || (s[i] == '\v')
 	|| (s[i] == ' ') || (s[i] == '\f') || (s[i] == '\r'))
 		i++;
-	if (s[i] == '-' || s[i] == '+')
+	s[i] == '-' ? sign = -1 : 0;
+	s[i] == '-' || s[i] == '+' ? i++ : 0;
+	while (s[i] <= '9' && s[i] >= '0')
 	{
-		if (s[i] == '-')
-		{
-			sign = -1;
-		}
+		res = res * 10 + s[i] - '0';
 		i++;
 	}
-	return (ft_calcint(s, res, i, sign));
+	return (res * sign);
 }
