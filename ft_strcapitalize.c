@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:58:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/01/29 12:20:59 by mbenhass         ###   ########.fr       */
+/*   Created: 2019/01/29 14:27:40 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/01/29 14:27:58 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strcapitalize(char *str)
 {
-	char	*ret;
-	int		i;
-	int		j;
+	int i;
+	int j;
 
-	if (!s1 || !s2)
-		return (NULL);
 	i = 0;
 	j = 0;
-	while (s1[i++])
-		;
-	while (s2[j++])
-		;
-	if (!(ret = (char*)malloc(sizeof(char) * (i - 1 + j - 1 + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	while (str[i] != '\0')
 	{
-		ret[i] = s1[i];
+		if ((j == 0) && (str[i] >= 'a' && str[i] <= 'z'))
+		{
+			str[i] -= 32;
+		}
+		else if ((j != 0) && (str[i] >= 'A' && str[i] <= 'Z'))
+		{
+			str[i] += 32;
+		}
+		else if (str[i] < '0' || str[i] > 'z' || (str[i] < 'a' && str[i] > 'Z'))
+		{
+			j = -1;
+		}
+		j++;
 		i++;
 	}
-	j = 0;
-	while (s2[j])
-		ret[i++] = s2[j++];
-	ret[i] = '\0';
-	return (ret);
+	return (str);
 }

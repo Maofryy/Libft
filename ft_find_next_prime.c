@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:58:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/01/29 12:20:59 by mbenhass         ###   ########.fr       */
+/*   Created: 2019/01/29 14:26:26 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/01/29 14:27:22 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static int	ft_is_prime(int nb)
 {
-	char	*ret;
-	int		i;
-	int		j;
+	int i;
+	int count;
 
-	if (!s1 || !s2)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i++])
-		;
-	while (s2[j++])
-		;
-	if (!(ret = (char*)malloc(sizeof(char) * (i - 1 + j - 1 + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	i = 2;
+	count = 0;
+	if (nb <= 0 || nb == 1)
+		return (0);
+	if (nb == 2147483629 || nb == 2147483647)
+		return (1);
+	while (i * i < nb)
 	{
-		ret[i] = s1[i];
+		if (nb % i == 0)
+			return (0);
 		i++;
 	}
-	j = 0;
-	while (s2[j])
-		ret[i++] = s2[j++];
-	ret[i] = '\0';
-	return (ret);
+	return (1);
+}
+
+int			ft_find_next_prime(int nb)
+{
+	int i;
+
+	i = 0;
+	while (ft_is_prime(nb + i) == 0)
+		i++;
+	return (nb + i);
 }

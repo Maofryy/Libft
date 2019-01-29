@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:58:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/01/29 12:20:59 by mbenhass         ###   ########.fr       */
+/*   Created: 2019/01/29 14:25:26 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/01/29 14:26:10 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		ft_sqrt(int nb)
 {
-	char	*ret;
-	int		i;
-	int		j;
+	int rac;
 
-	if (!s1 || !s2)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (s1[i++])
-		;
-	while (s2[j++])
-		;
-	if (!(ret = (char*)malloc(sizeof(char) * (i - 1 + j - 1 + 1))))
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		ret[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j])
-		ret[i++] = s2[j++];
-	ret[i] = '\0';
-	return (ret);
+	rac = 1;
+	while (rac * rac < nb)
+		rac++;
+	if (rac * rac == nb)
+		return (rac);
+	else
+		return (0);
 }

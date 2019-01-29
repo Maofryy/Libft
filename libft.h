@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/20 14:34:14 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/01/29 14:35:48 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,10 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void			ft_sort_integer_list(int *tab, int size);
+int				ft_power(int nb, int power);
+int				ft_sqrt(int nb);
+int				ft_find_next_prime(int nb);
+char			*ft_strcapitalize(char *str);
 
 #endif
