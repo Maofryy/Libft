@@ -6,7 +6,7 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/02/04 11:01:18 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/02/04 11:41:36 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRC_NAME = ft_atoi.c \
 	   ft_striter.c  \
 	   ft_striteri.c  \
 	   ft_strjoin.c  \
+	   ft_strjoinfree.c  \
 	   ft_strlcat.c  \
 	   ft_strlen.c  \
 	   ft_strmap.c  \

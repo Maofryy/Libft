@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/01/29 14:35:48 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/02/04 11:44:00 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,6 @@ int				ft_power(int nb, int power);
 int				ft_sqrt(int nb);
 int				ft_find_next_prime(int nb);
 char			*ft_strcapitalize(char *str);
+char			*ft_strjoinfree(char *s1, char *s2, int n);
 
 #endif
