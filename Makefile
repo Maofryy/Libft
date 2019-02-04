@@ -113,7 +113,7 @@ clean :
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean : clean
-	@rm -f $(NAME) && echo "$(RED)libft.a deleted$(WHITE)"
+	@rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
 
 re : fclean all
 

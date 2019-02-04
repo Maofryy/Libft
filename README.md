@@ -1,2 +1,1 @@
-# This is a C Library of small functions
-
+# This is a C library of small functions
