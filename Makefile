@@ -6,11 +6,25 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/01/29 14:36:00 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/02/04 11:01:18 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_atoi.c \
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+
+SRC_PATH = srcs 
+
+OBJ_PATH = objs
+
+CPPFLAGS = -Iinclude
+
+LDFLAGS = -Llibft
+LDLIBS = -lft
+
+NAME = libft.a
+
+SRC_NAME = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_isalnum.c \
 	   ft_isalpha.c \
@@ -74,32 +88,36 @@ SRCS = ft_atoi.c \
 	   ft_sqrt.c \
 	   ft_strcapitalize.c
 
-FLAGS = -Wall -Wextra -Werror
+OBJ_NAME = $(SRC_NAME:.c=.o)
 
-NAME = libft.a
+SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-HEAD = ./
-
-OBJ = $(SRCS:.c=.o)
+GREEN = \033[0;32m
+RED = \033[0;31m
+WHITE = \033[0m
 
 all : $(NAME)
 
-$(NAME) : ./libft.h
-	gcc $(FLAGS) -I $(HEAD) -c $(SRCS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+$(NAME) : $(OBJ)
+	@ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
 
-#%.o: %.c
-#	gcc $(FLAGS) -I $(HEAD) -o $@ -c $<
-
+$(OBJ_PATH)/%.o: srcs/%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@echo "$(GREEN)$@$(WHITE)"
 
 clean :
-	/bin/rm -rf $(OBJ) 
+	@rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
+	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean : clean
-	/bin/rm -rf $(NAME)
-	/bin/rm -rf $(LIB)
+	@rm -f $(NAME) && echo "$(RED)libft.a deleted$(WHITE)"
 
 re : fclean all
 
 .PHONY : all clean fclean re
+
+norme:
+	norminette $(SRC)
+	norminette $(INC_PATH)*.h
