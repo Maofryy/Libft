@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_reverse.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 17:51:47 by mbenhass          #+#    #+#             */
-/*   Updated: 2018/11/13 17:58:45 by mbenhass         ###   ########.fr       */
+/*   Created: 2019/09/16 11:00:13 by mbenhass          #+#    #+#             */
+/*   Updated: 2019/09/16 11:00:35 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void ft_reverse_str(char *str, int len)
 {
-	char	*ret;
-	size_t	i;
+	int i;
+	int j;
+	int temp;
 
-	if (((ret = ft_strnew(len)) == NULL) || (s == NULL))
-		return (NULL);
 	i = 0;
-	while (i < len)
+	j = len-1;
+	while (i<j)
 	{
-		ret[i] = s[start + i];
-		i++;
+		temp = str[i];
+		str[i] = str[j];
+		str[j] = temp;
+		i++; j--;
 	}
-	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 10:05:59 by mbenhass          #+#    #+#             */
-/*   Updated: 2019/02/04 11:44:00 by mbenhass         ###   ########.fr       */
+/*   Updated: 2019/09/16 11:01:06 by mbenhass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# define BUFF_SIZE 4096
+# define TRUE 1
 
 typedef	struct	s_list
 {
@@ -66,7 +68,6 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-char			*ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
@@ -82,10 +83,22 @@ void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_sort_integer_list(int *tab, int size);
-int				ft_power(int nb, int power);
+long int		ft_power(long int nb, int power);
+double			ft_dpower(double nb, int power);
 int				ft_sqrt(int nb);
 int				ft_find_next_prime(int nb);
 char			*ft_strcapitalize(char *str);
 char			*ft_strjoinfree(char *s1, char *s2, int n);
+int			get_next_line(const int fd, char **line);
+char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
+char			*ft_itoa(int n);
+char			*ft_itoa_base(int n, int base);
+char			*ft_itoa_BASE(int n, int base);
+char			*ft_lltoa(long long int n);
+char			*ft_lltoa_base(long long int n, int base);
+char			*ft_ulltoa_base(unsigned long long int n, int base);
+char			*ft_ulltoa_BASE(unsigned long long int n, int base);
+char			*ft_ulltoa(unsigned long long int n);
+void 			ft_reverse_str(char *str, int len);
 
 #endif

@@ -6,18 +6,18 @@
 #    By: mbenhass <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/21 21:44:08 by mbenhass          #+#    #+#              #
-#    Updated: 2019/02/04 11:41:36 by mbenhass         ###   ########.fr        #
+#    Updated: 2019/09/16 11:02:30 by mbenhass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_PATH = srcs 
+SRC_PATH = ./srcs
 
-OBJ_PATH = objs
+OBJ_PATH = ./objs
 
-CPPFLAGS = -Iinclude
+CPPFLAGS = -Iincludes
 
 LDFLAGS = -Llibft
 LDLIBS = -lft
@@ -32,6 +32,10 @@ SRC_NAME = ft_atoi.c \
 	   ft_isdigit.c \
 	   ft_isprint.c \
 	   ft_itoa.c \
+	   ft_lltoa.c \
+	   ft_itoa_base.c \
+	   ft_lltoa_base.c \
+	   ft_ulltoa_base.c \
 	   ft_lstadd.c \
 	   ft_lstdel.c \
 	   ft_lstdelone.c \
@@ -87,7 +91,10 @@ SRC_NAME = ft_atoi.c \
 	   ft_power.c \
 	   ft_sort_integer_list.c \
 	   ft_sqrt.c \
-	   ft_strcapitalize.c
+	   ft_strcapitalize.c \
+	   ft_strnjoinfree.c \
+	   ft_reverse.c \
+	   get_next_line.c 
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -100,24 +107,26 @@ WHITE = \033[0m
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
+$(NAME) : $(OBJ) ./includes/libft.h
+	ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
 
-$(OBJ_PATH)/%.o: srcs/%.c
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 	@echo "$(GREEN)$@$(WHITE)"
 
 clean :
-	@rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	rm -f $(OBJ) && echo "$(RED)objects successfully deleted$(WHITE)"
+	rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean : clean
-	@rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
+	rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
 
 re : fclean all
 
 .PHONY : all clean fclean re
+
+.SILENT : all $(NAME) clean fclean re
 
 norme:
 	norminette $(SRC)
