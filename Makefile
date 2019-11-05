@@ -136,6 +136,7 @@ clean :
 
 fclean : clean
 	rm -f $(NAME) && echo "$(RED)$(NAME) deleted$(WHITE)"
+	rm -f $(RUN_EXEC)
 
 re : fclean all
 
