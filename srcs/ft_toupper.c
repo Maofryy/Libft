@@ -19,3 +19,15 @@ int		ft_toupper(int c)
 	else
 		return (c);
 }
+
+char		*ft_strtoupper(char *s)
+{
+	char	*str;
+	int	i;
+
+	i = -1;
+	str = s;
+	while (str[++i])
+		str[i] = ft_toupper(str[i]);
+	return (str);
+}

@@ -8,7 +8,7 @@ static char	ft_base_char(int n)
 	return (n - 10 + 'a');
 }
 
-static char	ft_BASE_char(int n)
+static char	ft_majbase_char(int n)
 {
 	if (n < 10)
 		return (n + '0');
@@ -43,7 +43,7 @@ char		*ft_ulltoa_base(unsigned long long n, int base)
 	return (str);
 }
 
-char		*ft_ulltoa_BASE(unsigned long long n, int base)
+char		*ft_ulltoa_majbase(unsigned long long n, int base)
 {
 	unsigned long long int	value;
 	int			count;
@@ -64,10 +64,10 @@ char		*ft_ulltoa_BASE(unsigned long long n, int base)
 	value = n;
 	while (--count > 0)
 	{
-		str[count] = ft_BASE_char(value % base);
+		str[count] = ft_majbase_char(value % base);
 		value /= base;
 	}
-	*str = ft_BASE_char(value);
+	*str = ft_majbase_char(value);
 	return (str);
 }
 

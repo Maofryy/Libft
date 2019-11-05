@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "ft_printf.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -53,6 +54,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
+char				*ft_strtolower(char *s);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 char			*ft_strnew(size_t size);
@@ -93,11 +95,11 @@ int			get_next_line(const int fd, char **line);
 char			*ft_strnjoinfree(char *s1, char *s2, size_t n);
 char			*ft_itoa(int n);
 char			*ft_itoa_base(int n, int base);
-char			*ft_itoa_BASE(int n, int base);
+char			*ft_itoa_majbase(int n, int base);
 char			*ft_lltoa(long long int n);
 char			*ft_lltoa_base(long long int n, int base);
 char			*ft_ulltoa_base(unsigned long long int n, int base);
-char			*ft_ulltoa_BASE(unsigned long long int n, int base);
+char			*ft_ulltoa_majbase(unsigned long long int n, int base);
 char			*ft_ulltoa(unsigned long long int n);
 void 			ft_reverse_str(char *str, int len);
 

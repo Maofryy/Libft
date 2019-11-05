@@ -14,10 +14,13 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC_PATH = ./srcs
-
 OBJ_PATH = ./objs
+INC_PATH = ./includes
 
-CPPFLAGS = -Iincludes
+RUN_MAIN = main.c
+RUN_EXEC = main.out
+
+CPPFLAGS = -I $(INC_PATH)
 
 LDFLAGS = -Llibft
 LDLIBS = -lft
@@ -94,7 +97,19 @@ SRC_NAME = ft_atoi.c \
 	   ft_strcapitalize.c \
 	   ft_strnjoinfree.c \
 	   ft_reverse.c \
-	   get_next_line.c 
+	   get_next_line.c \
+	   ft_buffer.c \
+	   ft_buffer2.c \
+	   ft_conv.c \
+	   ft_conv_float.c \
+	   ft_conv_int.c \
+	   ft_conv_str.c \
+	   ft_conv_ptr.c \
+	   ft_flags.c \
+	   ft_int.c \
+	   ft_printf.c \
+	   ft_test.c \
+	   ft_wide.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -107,8 +122,8 @@ WHITE = \033[0m
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) ./includes/libft.h
-	ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
+$(NAME) : $(OBJ) ./includes/libft.h ./includes/ft_printf.h
+	    ar rcs $(NAME) $(OBJ) && echo "\n$(GREEN)$@ successfully created$(WHITE)"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -127,6 +142,10 @@ re : fclean all
 .PHONY : all clean fclean re
 
 .SILENT : all $(NAME) clean fclean re
+
+run : $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(RUN_MAIN) $^ -o $(RUN_EXEC)
+	./$(RUN_EXEC)
 
 norme:
 	norminette $(SRC)
